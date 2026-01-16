@@ -27,7 +27,7 @@ const StatCard = ({ number, label, delay }) => {
   );
 };
 
-const SkillBadge = ({ skill, delay }) => {
+const SkillBadge = ({ skill, delay, logo }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -35,8 +35,9 @@ const SkillBadge = ({ skill, delay }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.1, rotate: 2 }}
-      className="px-4 py-2 bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/30 rounded-full text-sm font-medium hover:border-primary/60 transition-colors"
+      className="px-4 py-2 bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/30 rounded-full text-sm font-medium hover:border-primary/60 transition-colors flex items-center gap-2"
     >
+      {logo && <span className="text-lg">{logo}</span>}
       {skill}
     </motion.div>
   );
@@ -44,9 +45,21 @@ const SkillBadge = ({ skill, delay }) => {
 
 const About = () => {
   const skills = [
-    'React', 'JavaScript', 'TypeScript', 'CSS/SASS', 'Tailwind CSS',
-    'Framer Motion', 'GSAP', 'HTML5', 'Figma', 'Adobe Target',
-    'Git', 'Agile/Scrum', 'A/B Testing', 'Accessibility', 'Responsive Design'
+    { name: 'React', logo: '⚛️' },
+    { name: 'JavaScript', logo: '📜' },
+    { name: 'TypeScript', logo: '💙' },
+    { name: 'CSS/SASS', logo: '🎨' },
+    { name: 'Tailwind CSS', logo: '💨' },
+    { name: 'Framer Motion', logo: '🎬' },
+    { name: 'GSAP', logo: '✨' },
+    { name: 'HTML5', logo: '🌐' },
+    { name: 'Figma', logo: '🎯' },
+    { name: 'Adobe Target', logo: '🎪' },
+    { name: 'Git', logo: '🔧' },
+    { name: 'Agile/Scrum', logo: '🚀' },
+    { name: 'A/B Testing', logo: '📊' },
+    { name: 'Accessibility', logo: '♿' },
+    { name: 'Responsive Design', logo: '📱' },
   ];
   
   return (
@@ -169,7 +182,7 @@ const About = () => {
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill, index) => (
-              <SkillBadge key={skill} skill={skill} delay={index * 0.05} />
+              <SkillBadge key={skill.name} skill={skill.name} logo={skill.logo} delay={index * 0.05} />
             ))}
           </div>
         </motion.div>

@@ -7,10 +7,11 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen bg-dark dark:bg-dark light:bg-light transition-colors duration-300">
       <Navigation />
       <Hero />
       <About />
@@ -20,6 +21,7 @@ function App() {
       <Contact />
       <Footer />
       <BackToTop />
+      <ThemeToggle />
     </div>
   );
 }

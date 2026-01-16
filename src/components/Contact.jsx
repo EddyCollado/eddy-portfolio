@@ -156,36 +156,6 @@ const Contact = () => {
                 );
               })}
             </div>
-            
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="pt-8"
-            >
-              <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
-              <div className="flex gap-4">
-                {[
-                  { icon: '💼', link: 'https://www.linkedin.com/in/eddy-collado-057532a8/', label: 'LinkedIn' },
-                  { icon: '💻', link: 'https://github.com/EddyCollado', label: 'GitHub' },
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary/20 to-purple-500/20 border border-primary/30 rounded-lg text-2xl hover:border-primary/60 transition-colors"
-                    title={social.label}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
           
           {/* Contact Form */}

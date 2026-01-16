@@ -8,7 +8,11 @@
   }
   
   body {
-    @apply bg-dark text-white antialiased;
+    /* 1. Default (Light Mode) styles first */
+    @apply bg-white text-gray-900 antialiased; 
+    
+    /* 2. Dark Mode overrides second */
+    @apply dark:bg-dark dark:text-white;
   }
 }
 
