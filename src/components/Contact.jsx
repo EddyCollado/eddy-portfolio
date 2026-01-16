@@ -24,22 +24,35 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+    // Using FormSubmit.co - free form backend
+    const formData = new FormData(e.target);
+    
+    try {
+      const response = await fetch('https://formsubmit.co/eddcollado@gmail.com', {
+        method: 'POST',
+        body: formData,
+      });
       
+      if (response.ok) {
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        
+        setTimeout(() => setSubmitStatus(null), 5000);
+      }
+    } catch (error) {
+      setIsSubmitting(false);
+      setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 5000);
-    }, 2000);
+    }
   };
   
   const contactInfo = [
     {
       icon: '📧',
       label: 'Email',
-      value: 'eddy.collado@example.com',
-      link: 'mailto:eddy.collado@example.com',
+      value: 'eddcollado@gmail.com',
+      link: 'mailto:eddcollado@gmail.com',
     },
     {
       icon: '💼',
@@ -103,34 +116,45 @@ const Contact = () => {
             </div>
             
             <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/5 to-purple-500/5 border border-primary/10 rounded-lg hover:border-primary/30 transition-colors"
-                >
-                  <div className="text-3xl">{info.icon}</div>
-                  <div className="flex-1">
-                    <div className="text-sm text-gray-400">{info.label}</div>
-                    {info.link ? (
-                      <a
-                        href={info.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-primary transition-colors"
-                      >
-                        {info.value}
-                      </a>
-                    ) : (
+              {contactInfo.map((info, index) => {
+                const CardContent = (
+                  <>
+                    <div className="text-3xl">{info.icon}</div>
+                    <div className="flex-1">
+                      <div className="text-sm text-gray-400">{info.label}</div>
                       <div className="text-white">{info.value}</div>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
+                    </div>
+                  </>
+                );
+
+                return info.link ? (
+                  <motion.a
+                    key={index}
+                    href={info.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/5 to-purple-500/5 border border-primary/10 rounded-lg hover:border-primary/30 transition-colors cursor-pointer"
+                  >
+                    {CardContent}
+                  </motion.a>
+                ) : (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-primary/5 to-purple-500/5 border border-primary/10 rounded-lg"
+                  >
+                    {CardContent}
+                  </motion.div>
+                );
+              })}
             </div>
             
             {/* Social Links */}
@@ -172,6 +196,10 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Hidden fields for FormSubmit */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              
               {/* Name Field */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -314,6 +342,17 @@ const Contact = () => {
                   className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-center"
                 >
                   ✅ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+              
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-center"
+                >
+                  ❌ Something went wrong. Please try again or email me directly.
                 </motion.div>
               )}
             </form>

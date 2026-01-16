@@ -119,10 +119,10 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <span>📧</span>
                 <a
-                  href="mailto:eddy.collado@example.com"
+                  href="mailto:eddcollado@gmail.com"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  eddy.collado@example.com
+                  eddcollado@gmail.com
                 </a>
               </li>
             </ul>
