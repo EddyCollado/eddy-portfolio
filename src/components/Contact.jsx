@@ -92,7 +92,7 @@ const Contact = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">
             Get In <span className="text-gradient">Touch</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Have a project in mind or just want to chat? I'd love to hear from you!
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mt-6" />
@@ -108,8 +108,8 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
-              <p className="text-gray-400 leading-relaxed mb-8">
+              <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Let's Connect</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                 I'm always open to discussing new projects, creative ideas, or opportunities 
                 to be part of your vision. Feel free to reach out through any of these channels.
               </p>
@@ -121,8 +121,8 @@ const Contact = () => {
                   <>
                     <div className="text-3xl">{info.icon}</div>
                     <div className="flex-1">
-                      <div className="text-sm text-gray-400">{info.label}</div>
-                      <div className="text-white">{info.value}</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400">{info.label}</div>
+                      <div className="text-gray-900 dark:text-white">{info.value}</div>
                     </div>
                   </>
                 );
@@ -177,7 +177,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">
                   Name
                 </label>
                 <motion.input
@@ -189,7 +189,7 @@ const Contact = () => {
                   onFocus={() => setFocusedField('name')}
                   onBlur={() => setFocusedField(null)}
                   required
-                  className="w-full px-4 py-3 bg-dark border-2 rounded-lg focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-dark text-gray-900 dark:text-white border-2 rounded-lg focus:outline-none transition-colors"
                   style={{
                     borderColor: focusedField === 'name' ? '#2c98f0' : 'rgba(44, 152, 240, 0.2)',
                   }}
@@ -204,7 +204,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">
                   Email
                 </label>
                 <motion.input
@@ -216,7 +216,7 @@ const Contact = () => {
                   onFocus={() => setFocusedField('email')}
                   onBlur={() => setFocusedField(null)}
                   required
-                  className="w-full px-4 py-3 bg-dark border-2 rounded-lg focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-dark text-gray-900 dark:text-white border-2 rounded-lg focus:outline-none transition-colors"
                   style={{
                     borderColor: focusedField === 'email' ? '#2c98f0' : 'rgba(44, 152, 240, 0.2)',
                   }}
@@ -231,7 +231,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">
                   Subject
                 </label>
                 <motion.input
@@ -243,7 +243,7 @@ const Contact = () => {
                   onFocus={() => setFocusedField('subject')}
                   onBlur={() => setFocusedField(null)}
                   required
-                  className="w-full px-4 py-3 bg-dark border-2 rounded-lg focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-dark text-gray-900 dark:text-white border-2 rounded-lg focus:outline-none transition-colors"
                   style={{
                     borderColor: focusedField === 'subject' ? '#2c98f0' : 'rgba(44, 152, 240, 0.2)',
                   }}
@@ -258,7 +258,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">
                   Message
                 </label>
                 <motion.textarea
@@ -270,7 +270,7 @@ const Contact = () => {
                   onBlur={() => setFocusedField(null)}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 bg-dark border-2 rounded-lg focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-gray-100 dark:bg-dark text-gray-900 dark:text-white border-2 rounded-lg focus:outline-none transition-colors resize-none"
                   style={{
                     borderColor: focusedField === 'message' ? '#2c98f0' : 'rgba(44, 152, 240, 0.2)',
                   }}

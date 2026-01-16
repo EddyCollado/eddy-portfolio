@@ -22,7 +22,7 @@ const StatCard = ({ number, label, delay }) => {
       >
         {number}
       </motion.div>
-      <div className="text-gray-400 text-sm uppercase tracking-wider">{label}</div>
+      <div className="text-gray-400 dark:text-gray-400 text-gray-600 text-sm uppercase tracking-wider">{label}</div>
     </motion.div>
   );
 };
@@ -35,7 +35,7 @@ const SkillBadge = ({ skill, delay, logo }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.1, rotate: 2 }}
-      className="px-4 py-2 bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/30 rounded-full text-sm font-medium hover:border-primary/60 transition-colors flex items-center gap-2"
+      className="px-4 py-2 bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/30 rounded-full text-sm font-medium hover:border-primary/60 transition-colors flex items-center gap-2 text-gray-900 dark:text-white"
     >
       {logo && <span className="text-lg">{logo}</span>}
       {skill}
@@ -94,8 +94,8 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-2xl font-bold mb-4 text-primary">Who Am I?</h3>
-              <p className="text-gray-300 leading-relaxed">
-                I'm Eddy Collado, a creative and enthusiastic <span className="text-white font-semibold">Senior UI/UX Front End Web Developer</span> currently 
+              <p className="text-black dark:text-gray-300 leading-relaxed">
+                I'm Eddy Collado, a creative and enthusiastic <span className="text-black dark:text-white font-semibold">Senior UI/UX Front End Web Developer</span> currently 
                 at DISH/Echostar in Denver, Colorado, where I bridge design and development to build dynamic, 
                 responsive solutions in React, CSS, JavaScript, and Greensock (GSAP).
               </p>
@@ -107,8 +107,8 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="text-gray-300 leading-relaxed">
-                Drawing on my graphic design background, I focus on <span className="text-white font-semibold">accessibility and user engagement</span> across 
+              <p className="text-black dark:text-gray-300 leading-relaxed">
+                Drawing on my graphic design background, I focus on <span className="text-black dark:text-white font-semibold">accessibility and user engagement</span> across 
                 platforms like Boost Mobile, OnTech Smart Services, and Gen Mobile, collaborating with cross-functional 
                 teams in Agile Scrum environments to deliver high-impact results.
               </p>
@@ -120,7 +120,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-black dark:text-gray-300 leading-relaxed">
                 I'm always pushing boundaries, whether it's experimenting with new A/B testing strategies, 
                 mastering Figma for UI design, or exploring the latest in web animation. Off the clock, you'll 
                 find me exploring handheld gaming PCs, tinkering with Linux and Android, or hiking with my dog, 

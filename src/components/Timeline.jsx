@@ -32,10 +32,10 @@ const TimelineItem = ({ title, company, period, description, icon, color, index 
                   className="text-right"
                 >
                   <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-xl p-6 hover:border-primary/40 transition-colors">
-                    <h3 className="text-xl font-bold mb-1">{title}</h3>
+                    <h3 className="text-xl font-bold mb-1 text-black dark:text-white">{title}</h3>
                     <h4 className="text-primary font-semibold mb-2">{company}</h4>
-                    <p className="text-sm text-gray-400 mb-3">{period}</p>
-                    <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+                    <p className="text-sm text-black dark:text-gray-400 mb-3">{period}</p>
+                    <p className="text-black dark:text-gray-300 text-sm leading-relaxed">{description}</p>
                   </div>
                 </motion.div>
               </GlowCard>
@@ -93,10 +93,10 @@ const TimelineItem = ({ title, company, period, description, icon, color, index 
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-xl p-6 hover:border-primary/40 transition-colors">
-                    <h3 className="text-xl font-bold mb-1">{title}</h3>
+                    <h3 className="text-xl font-bold mb-1 text-black dark:text-white">{title}</h3>
                     <h4 className="text-primary font-semibold mb-2">{company}</h4>
-                    <p className="text-sm text-gray-400 mb-3">{period}</p>
-                    <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+                    <p className="text-sm text-black dark:text-gray-400 mb-3">{period}</p>
+                    <p className="text-black dark:text-gray-300 text-sm leading-relaxed">{description}</p>
                   </div>
                 </motion.div>
               </GlowCard>
@@ -132,10 +132,10 @@ const TimelineItem = ({ title, company, period, description, icon, color, index 
             glowOpacity={0.35}
           >
             <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-xl p-4">
-              <h3 className="text-lg font-bold mb-1">{title}</h3>
+              <h3 className="text-lg font-bold mb-1 text-black dark:text-white">{title}</h3>
               <h4 className="text-primary font-semibold mb-2 text-sm">{company}</h4>
-              <p className="text-xs text-gray-400 mb-3">{period}</p>
-              <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+              <p className="text-xs text-black dark:text-gray-400 mb-3">{period}</p>
+              <p className="text-black dark:text-gray-300 text-sm leading-relaxed">{description}</p>
             </div>
           </GlowCard>
         </div>
@@ -206,7 +206,7 @@ const Timeline = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">
             My <span className="text-gradient">Journey</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             From graphic design to full-stack development, here's my professional story
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mt-6" />
@@ -246,7 +246,7 @@ const Timeline = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-600 dark:text-gray-400 mb-6">
             Want to know more about my experience?
           </p>
           <motion.a

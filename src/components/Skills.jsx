@@ -39,7 +39,7 @@ const SkillBar = ({ name, level, color, delay, icon }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {icon && <span className="text-xl">{icon}</span>}
-          <span className="font-medium text-gray-200">{name}</span>
+          <span className="font-medium text-gray-900 dark:text-gray-200">{name}</span>
         </div>
         <motion.span
           initial={{ opacity: 0 }}
@@ -156,7 +156,7 @@ const Skills = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">
             Skills & <span className="text-gradient">Expertise</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-purple-500 mx-auto rounded-full mt-6" />
@@ -206,8 +206,8 @@ const Skills = () => {
             >
               <div className="p-6 bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-xl h-full">
                 <div className="text-3xl mb-3">🎯</div>
-                <h4 className="text-lg font-bold mb-2">Accessibility First</h4>
-                <p className="text-gray-400 text-sm">
+                <h4 className="text-lg font-bold mb-2 text-black dark:text-white">Accessibility First</h4>
+                <p className="text-black dark:text-gray-400 text-sm">
                   Building inclusive experiences that work for everyone, following WCAG guidelines
                 </p>
               </div>
@@ -229,8 +229,8 @@ const Skills = () => {
             >
               <div className="p-6 bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-xl h-full">
                 <div className="text-3xl mb-3">📱</div>
-                <h4 className="text-lg font-bold mb-2">Responsive Design</h4>
-                <p className="text-gray-400 text-sm">
+                <h4 className="text-lg font-bold mb-2 text-black dark:text-white">Responsive Design</h4>
+                <p className="text-black dark:text-gray-400 text-sm">
                   Pixel-perfect designs that adapt seamlessly across all devices and screen sizes
                 </p>
               </div>
@@ -252,8 +252,8 @@ const Skills = () => {
             >
               <div className="p-6 bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-xl h-full">
                 <div className="text-3xl mb-3">⚡</div>
-                <h4 className="text-lg font-bold mb-2">Performance</h4>
-                <p className="text-gray-400 text-sm">
+                <h4 className="text-lg font-bold mb-2 text-black dark:text-white">Performance</h4>
+                <p className="text-black dark:text-gray-400 text-sm">
                   Optimized code and assets for lightning-fast load times and smooth interactions
                 </p>
               </div>
@@ -272,7 +272,7 @@ const Skills = () => {
           <h3 className="text-2xl font-bold mb-4">
             Always <span className="text-gradient">Learning</span>
           </h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-black dark:text-gray-400 mb-6 max-w-2xl mx-auto">
             Currently exploring Three.js for 3D web experiences and diving deeper into Python 
             for backend development. The tech world never stops evolving, and neither do I.
           </p>
@@ -285,7 +285,7 @@ const Skills = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: 0.8 + (index * 0.1) }}
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="px-4 py-2 bg-dark border border-primary/30 rounded-full text-sm"
+                className="px-4 py-2 bg-dark dark:bg-dark bg-white border border-primary/30 rounded-full text-sm text-gray-900 dark:text-white"
               >
                 {tech}
               </motion.span>

@@ -11,15 +11,19 @@ import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   return (
-    <div className="min-h-screen bg-dark dark:bg-dark light:bg-light transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-dark transition-colors duration-300">
       <Navigation />
-      <Hero />
+      <div className="bg-dark">
+        <Hero />
+      </div>
       <About />
       <Skills />
       <Timeline />
       <Projects />
       <Contact />
-      <Footer />
+      <div className="bg-gradient-to-b from-dark to-black">
+        <Footer />
+      </div>
       <BackToTop />
       <ThemeToggle />
     </div>

@@ -83,7 +83,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -110,7 +110,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white">Get In Touch</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2 text-gray-400">
                 <span>📍</span>

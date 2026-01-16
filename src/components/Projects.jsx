@@ -99,7 +99,7 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
             transformStyle: 'preserve-3d',
           }}
         >
-          <h3 className="text-2xl font-bold mb-2">{title}</h3>
+          <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
           <p className="text-gray-300 text-sm mb-4">{description}</p>
           
           {/* Tags */}
@@ -107,7 +107,7 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-primary/20 border border-primary/50 rounded-full text-xs"
+                className="px-3 py-1 bg-primary/20 border border-primary/50 rounded-full text-xs text-white"
               >
                 {tag}
               </span>
@@ -123,7 +123,7 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-primary/80 hover:bg-primary rounded-lg text-xs font-semibold"
+              className="px-4 py-2 bg-primary/80 hover:bg-primary rounded-lg text-xs font-semibold text-white"
             >
               {showPreview ? '📸 Show Image' : '🌐 Live Preview'}
             </motion.button>
@@ -193,7 +193,7 @@ const Projects = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Hover over the cards to see them come to life with 3D effects
           </p>
         </motion.div>

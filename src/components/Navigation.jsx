@@ -58,7 +58,7 @@ const Navigation = () => {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-dark/95 backdrop-blur-lg border-b border-primary/10 shadow-lg' 
+            ? 'bg-white/95 dark:bg-dark/95 backdrop-blur-lg border-b border-gray-200 dark:border-primary/10 shadow-lg' 
             : 'bg-transparent'
         }`}
       >
@@ -91,7 +91,7 @@ const Navigation = () => {
                       scrollToSection(item.href);
                     }}
                     className={`relative text-sm font-medium transition-colors ${
-                      isActive ? 'text-primary' : 'text-gray-300 hover:text-white'
+                      isActive ? 'text-primary' : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                     }`}
                     whileHover={{ y: -2 }}
                   >
@@ -167,7 +167,7 @@ const Navigation = () => {
                 animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                 transition={{ delay: index * 0.1 }}
                 className={`text-lg font-medium transition-colors ${
-                  isActive ? 'text-primary' : 'text-gray-300'
+                  isActive ? 'text-primary' : 'text-gray-700 dark:text-gray-300'
                 }`}
               >
                 {item.name}
