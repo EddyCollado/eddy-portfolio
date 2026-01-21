@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { RESUME_URL } from '../config';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -128,7 +129,7 @@ const Footer = () => {
             </ul>
             
             <motion.a
-              href="/images/EddyCollado_08.22.25_Ref.pdf"
+              href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

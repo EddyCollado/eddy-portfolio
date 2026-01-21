@@ -1,5 +1,6 @@
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { RESUME_URL } from '../config';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -109,7 +110,7 @@ const Navigation = () => {
               
               {/* CTA Button */}
               <motion.a
-                href="/images/EddyCollado_08.22.25_Ref.pdf"
+                href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2 bg-primary text-white rounded-lg text-sm font-semibold"
@@ -176,7 +177,7 @@ const Navigation = () => {
           })}
           
           <motion.a
-            href="/images/EddyCollado_08.22.25_Ref.pdf"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, x: 20 }}

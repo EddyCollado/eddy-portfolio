@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import GlowCard from './GlowCard';
+import { RESUME_URL } from '../config';
 
 const TimelineItem = ({ title, company, period, description, icon, color, index }) => {
   const ref = useRef(null);
@@ -250,7 +251,7 @@ const Timeline = () => {
             Want to know more about my experience?
           </p>
           <motion.a
-            href="/images/EddyCollado_08.22.25_Ref.pdf"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-gradient-to-r from-primary to-purple-500 text-white rounded-lg font-semibold"

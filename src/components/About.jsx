@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { RESUME_URL } from '../config';
 
 const StatCard = ({ number, label, delay }) => {
   const ref = useRef(null);
@@ -196,7 +197,7 @@ const About = () => {
           className="text-center mt-12"
         >
           <motion.a
-            href="/images/EddyCollado_08.22.25_Ref.pdf"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-primary text-white rounded-lg font-semibold"
