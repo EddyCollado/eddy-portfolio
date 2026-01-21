@@ -153,7 +153,7 @@ const Footer = () => {
             © {currentYear} Eddy Collado. Built with React, Tailwind & Framer Motion.
           </p>
           <p className="text-gray-400 text-sm">
-            Designed & Developed with <span className="text-red-500">❤️</span> in Denver
+            Designed & Developed with <span className="text-red-500">❤️</span> in Denver 🤖
           </p>
         </motion.div>
       </div>

@@ -1,7 +1,9 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useEasterEgg } from './ChronoTriggerEasterEgg';
 
 const Hero = () => {
+  const { unlocked } = useEasterEgg() || {};
   const [text, setText] = useState('');
   const fullText = "Hi! I'm Eddy";
   
@@ -51,6 +53,22 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Zeal Kingdom GIF Background (when unlocked) */}
+      {unlocked && (
+        <motion.div
+          initial={{ opacity: 0, scale: 1.2 }}
+          animate={{ opacity: 0.5, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="absolute inset-0 z-0"
+        >
+          <img 
+            src="/images/chrono-trigger.gif" 
+            alt="Kingdom of Zeal"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      )}
+      
       {/* Animated gradient background with mouse interaction */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-dark via-gray-900 to-primary/20"

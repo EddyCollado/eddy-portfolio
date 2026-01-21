@@ -191,9 +191,11 @@ const Timeline = () => {
   
   return (
     <section id="timeline" className="min-h-screen py-20 px-4 md:px-8 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+      {/* Gradient mesh backgrounds */}
+      <div className="absolute inset-0 opacity-30 dark:opacity-20">
+        <div className="absolute top-1/3 right-0 w-96 h-96 bg-gradient-to-bl from-primary/30 to-purple-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '11s' }} />
+        <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/30 to-primary/30 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '13s' }} />
+      </div>
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
