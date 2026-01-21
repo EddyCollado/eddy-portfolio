@@ -10,10 +10,32 @@ import BackToTop from './components/BackToTop';
 import ThemeToggle from './components/ThemeToggle';
 import ScrollProgress from './components/ScrollProgress';
 import ChronoTriggerEasterEgg from './components/ChronoTriggerEasterEgg';
+import LoadingScreen from './components/LoadingScreen';
+import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    if (hasVisited) {
+      setIsLoading(false);
+    }
+  }, []);
+
+  const handleLoadingComplete = () => {
+    sessionStorage.setItem('hasVisited', 'true');
+    setIsLoading(false);
+  };
+
   return (
-    <ChronoTriggerEasterEgg>
+    <>
+      <AnimatePresence>
+        {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      </AnimatePresence>
+      
+      <ChronoTriggerEasterEgg>
       <div className="min-h-screen bg-white dark:bg-dark transition-colors duration-300">
         <ScrollProgress />
         <Navigation />
@@ -32,6 +54,7 @@ function App() {
         <ThemeToggle />
       </div>
     </ChronoTriggerEasterEgg>
+    </>
   );
 }
 

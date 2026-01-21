@@ -38,7 +38,13 @@ const SkillBadge = ({ skill, delay, logo }) => {
       whileHover={{ scale: 1.1, rotate: 2 }}
       className="px-4 py-2 bg-gradient-to-r from-primary/10 to-purple-500/10 border border-primary/30 rounded-full text-sm font-medium hover:border-primary/60 transition-colors flex items-center gap-2 text-gray-900 dark:text-white"
     >
-      {logo && <span className="text-lg">{logo}</span>}
+      {logo && (
+        <img 
+          src={logo} 
+          alt={skill}
+          className="w-5 h-5"
+        />
+      )}
       {skill}
     </motion.div>
   );
@@ -46,21 +52,21 @@ const SkillBadge = ({ skill, delay, logo }) => {
 
 const About = () => {
   const skills = [
-    { name: 'React', logo: '⚛️' },
-    { name: 'JavaScript', logo: '📜' },
-    { name: 'TypeScript', logo: '💙' },
-    { name: 'CSS/SASS', logo: '🎨' },
-    { name: 'Tailwind CSS', logo: '💨' },
-    { name: 'Framer Motion', logo: '🎬' },
-    { name: 'GSAP', logo: '✨' },
-    { name: 'HTML5', logo: '🌐' },
-    { name: 'Figma', logo: '🎯' },
-    { name: 'Adobe Target', logo: '🎪' },
-    { name: 'Git', logo: '🔧' },
-    { name: 'Agile/Scrum', logo: '🚀' },
-    { name: 'A/B Testing', logo: '📊' },
-    { name: 'Accessibility', logo: '♿' },
-    { name: 'Responsive Design', logo: '📱' },
+    { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { name: 'CSS/SASS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
+    { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
+    { name: 'Framer Motion', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg' },
+    { name: 'GSAP', logo: null },
+    { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+    { name: 'Adobe Target', logo: null },
+    { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+    { name: 'Agile/Scrum', logo: null },
+    { name: 'A/B Testing', logo: null },
+    { name: 'Accessibility', logo: null },
+    { name: 'Responsive Design', logo: null },
   ];
   
   return (
