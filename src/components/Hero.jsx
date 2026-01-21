@@ -12,7 +12,7 @@ const Hero = () => {
   
   // useSpring adds smooth physics-based animation to the values
   // This makes the cursor follow feel natural, not instant
-  const springConfig = { damping: 25, stiffness: 150 };
+  const springConfig = { damping: 15, stiffness: 300 };
   const mouseXSpring = useSpring(mouseX, springConfig);
   const mouseYSpring = useSpring(mouseY, springConfig);
   

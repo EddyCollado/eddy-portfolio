@@ -3,65 +3,15 @@ import { useRef, useState } from 'react';
 import GlowCard from './GlowCard';
 
 const ProjectCard = ({ title, description, image, link, tags, livePreview }) => {
-  const ref = useRef(null);
-  const [isHovering, setIsHovering] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['17.5deg', '-17.5deg']);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-17.5deg', '17.5deg']);
-  
-  const handleMouseMove = (e) => {
-    if (!ref.current) return;
-    
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    
-    x.set(xPct);
-    y.set(yPct);
-  };
-  
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-    setIsHovering(false);
-  };
-  
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
   
   return (
     <motion.div
       className="rounded-xl overflow-hidden"
-      style={{ perspective: '1000px' }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
-      <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: 'preserve-3d',
-        }}
-        className="relative h-96 w-full rounded-xl overflow-hidden cursor-pointer"
-        whileHover={{ scale: 1.05 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      >
+      <div className="relative h-96 w-full rounded-xl overflow-hidden cursor-pointer">
       <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full">
         {/* Live Preview or Background Image */}
         {livePreview && showPreview ? (
@@ -82,8 +32,6 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${image})`,
-              transform: 'translateZ(20px)',
-              transformStyle: 'preserve-3d',
             }}
           />
         )}
@@ -92,13 +40,7 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         
         {/* Content */}
-        <div
-          className="absolute bottom-0 left-0 right-0 p-6"
-          style={{
-            transform: 'translateZ(50px)',
-            transformStyle: 'preserve-3d',
-          }}
-        >
+        <div className="absolute bottom-0 left-0 right-0 p-6">
           <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
           <p className="text-gray-300 text-sm mb-4">{description}</p>
           
@@ -133,9 +75,6 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
         {/* Shine Effect */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-          style={{
-            transform: 'translateZ(75px)',
-          }}
           animate={{
             x: ['-100%', '100%'],
           }}
@@ -146,7 +85,7 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
           }}
         />
       </a>
-    </motion.div>
+    </div>
     </motion.div>
   );
 };
