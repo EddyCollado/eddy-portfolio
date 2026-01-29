@@ -279,7 +279,7 @@ const Skills = () => {
             for backend development. The tech world never stops evolving, and neither do I.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Three.js', 'Python', 'WebGL', 'Node.js'].map((tech, index) => (
+            {['Three.js', 'Python', 'WebGL', 'Unreal Engine 5', 'Agentic AI', 'SAML'].map((tech, index) => (
               <motion.span
                 key={tech}
                 initial={{ opacity: 0, scale: 0.8 }}
