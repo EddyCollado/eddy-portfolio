@@ -51,25 +51,40 @@ export const CompletionModalContent = () => {
         <h3 className="text-2xl font-bold text-white mb-4">🕹️ Games That Shaped Me</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { name: 'Chrono Trigger', emoji: '⏰', year: '1995' },
-            { name: 'Hollow Knight', emoji: '⚔️', year: '2017' },
-            { name: 'Dark Souls', emoji: '🔥', year: '2011' },
-            { name: 'Metal Gear Solid', emoji: '📦', year: '1998' },
-            { name: 'Final Fantasy X', emoji: '🌊', year: '2001' },
-            { name: 'Stardew Valley', emoji: '🌾', year: '2016' },
-            { name: 'The Last of Us', emoji: '🍄', year: '2013' },
-            { name: 'Elden Ring', emoji: '🗡️', year: '2022' },
+            { name: 'Chrono Trigger', emoji: '⏰', year: '1995', image: 'chrono-trigger.jpg' },
+            { name: 'Hollow Knight', emoji: '⚔️', year: '2017', image: 'hollow-knight.jpg' },
+            { name: 'Dark Souls', emoji: '🔥', year: '2011', image: 'dark-souls.jpg' },
+            { name: 'Metal Gear Solid', emoji: '📦', year: '1998', image: 'metal-gear-solid.jpg' },
+            { name: 'Final Fantasy X', emoji: '🌊', year: '2001', image: 'final-fantasy-x.jpg' },
+            { name: 'Stardew Valley', emoji: '🌾', year: '2016', image: 'stardew-valley.jpg' },
+            { name: 'The Last of Us', emoji: '🍄', year: '2013', image: 'the-last-of-us.jpg' },
+            { name: 'Elden Ring', emoji: '🗡️', year: '2022', image: 'elden-ring.jpg' },
           ].map((game, index) => (
             <motion.div
               key={game.name}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 + index * 0.1 }}
-              className="bg-gray-800/50 border border-gray-700 rounded-lg p-4 text-center hover:border-primary/50 transition-colors"
+              className="bg-gray-800/50 border border-gray-700 rounded-lg overflow-hidden hover:border-primary/50 transition-colors group"
             >
-              <div className="text-3xl mb-2">{game.emoji}</div>
-              <div className="text-sm font-semibold text-white">{game.name}</div>
-              <div className="text-xs text-gray-500">{game.year}</div>
+              <div className="aspect-[3/4] relative bg-gray-900 flex items-center justify-center">
+                <img 
+                  src={`/images/games/${game.image}`}
+                  alt={game.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'flex';
+                  }}
+                />
+                <div className="absolute inset-0 hidden items-center justify-center text-6xl">
+                  {game.emoji}
+                </div>
+              </div>
+              <div className="p-3 text-center">
+                <div className="text-sm font-semibold text-white">{game.name}</div>
+                <div className="text-xs text-gray-500">{game.year}</div>
+              </div>
             </motion.div>
           ))}
         </div>
