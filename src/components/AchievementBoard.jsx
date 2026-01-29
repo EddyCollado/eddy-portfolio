@@ -7,9 +7,20 @@ const AchievementBoard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hoveredId, setHoveredId] = useState(null);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [isHidden, setIsHidden] = useState(() => {
+    return sessionStorage.getItem('achievementsHidden') === 'true';
+  });
   const { achievements, isUnlocked, progress, showNotification } = useAchievements();
 
   const isComplete = progress.unlocked === progress.total;
+
+  const hideAchievements = () => {
+    sessionStorage.setItem('achievementsHidden', 'true');
+    setIsHidden(true);
+    setIsExpanded(false);
+  };
+
+  if (isHidden) return null;
 
   return (
     <>
@@ -72,14 +83,23 @@ const AchievementBoard = () => {
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Achievements</h2>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">{progress.unlocked} of {progress.total} unlocked</p>
                   </div>
-                  <button
-                    onClick={() => setIsExpanded(false)}
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={hideAchievements}
+                      className="text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors text-sm"
+                      title="Hide achievements for this session"
+                    >
+                      Hide
+                    </button>
+                    <button
+                      onClick={() => setIsExpanded(false)}
+                      className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
 
                 {/* 100% Completion Button */}
