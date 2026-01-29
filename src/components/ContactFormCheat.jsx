@@ -1,30 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useAchievements } from '../context/AchievementContext';
 
-const HarvestMoon = () => {
+const ContactFormCheat = () => {
   const { unlockAchievement, isUnlocked } = useAchievements();
   const [cheatSequence, setCheatSequence] = useState([]);
-  const CHEAT_CODE = ['h', 'a', 'r', 'v', 'e', 's', 't'];
+  const CHEAT_CODE = ['c', 'o', 'n', 't', 'a', 'c', 't'];
 
   useEffect(() => {
-    if (isUnlocked('harvestMoon')) return;
-
-    const checkTime = () => {
-      const hour = new Date().getHours();
-      if (hour === 12) {
-        unlockAchievement('harvestMoon');
-      }
-    };
-
-    checkTime();
-    const interval = setInterval(checkTime, 60000);
-
-    return () => clearInterval(interval);
-  }, [isUnlocked, unlockAchievement]);
-
-  // Cheat code listener
-  useEffect(() => {
-    if (isUnlocked('harvestMoon')) return;
+    if (isUnlocked('contactForm')) return;
 
     const handleKeyPress = (e) => {
       const key = e.key.toLowerCase();
@@ -33,7 +16,7 @@ const HarvestMoon = () => {
         const newSeq = [...prev, key].slice(-7);
         
         if (newSeq.join('') === CHEAT_CODE.join('')) {
-          unlockAchievement('harvestMoon');
+          unlockAchievement('contactForm');
         }
         
         return newSeq;
@@ -47,4 +30,4 @@ const HarvestMoon = () => {
   return null;
 };
 
-export default HarvestMoon;
+export default ContactFormCheat;

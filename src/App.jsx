@@ -19,6 +19,7 @@ import HollowKnight from './components/HollowKnight';
 import PraiseTheSun from './components/PraiseTheSun';
 import HarvestMoon from './components/HarvestMoon';
 import CakeIsALie from './components/CakeIsALie';
+import ContactFormCheat from './components/ContactFormCheat';
 import CompletionReward from './components/CompletionReward';
 import { AchievementProvider } from './context/AchievementContext';
 import { useState, useEffect } from 'react';
@@ -70,6 +71,7 @@ function App() {
         <PraiseTheSun />
         <HarvestMoon />
         <CakeIsALie />
+        <ContactFormCheat />
         <CompletionReward />
       </div>
     </ChronoTriggerEasterEgg>
