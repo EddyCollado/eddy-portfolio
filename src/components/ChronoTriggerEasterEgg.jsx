@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, createContext, useContext } from 'react';
 import { motion } from 'framer-motion';
+import { useAchievements } from '../context/AchievementContext';
 
 // Create context for easter egg state
 export const EasterEggContext = createContext();
@@ -9,9 +10,9 @@ export const useEasterEgg = () => useContext(EasterEggContext);
 const ChronoTriggerEasterEgg = ({ children }) => {
   const [sequence, setSequence] = useState([]);
   const [unlocked, setUnlocked] = useState(false);
-  const [showAchievement, setShowAchievement] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
+  const { unlockAchievement } = useAchievements();
 
   const SECRET_CODE = ['x', 'a', 'b', 'y'];
 
@@ -25,7 +26,7 @@ const ChronoTriggerEasterEgg = ({ children }) => {
           
           if (newSeq.join('') === SECRET_CODE.join('')) {
             setUnlocked(true);
-            setShowAchievement(true);
+            unlockAchievement('factoryPuzzle');
             
             // Play music only once using ref
             if (!audioRef.current) {
@@ -71,27 +72,6 @@ const ChronoTriggerEasterEgg = ({ children }) => {
   return (
     <EasterEggContext.Provider value={{ unlocked }}>
       {children}
-      {/* Achievement Popup - Stays visible */}
-      {unlocked && (
-        <motion.div
-          initial={{ x: 300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          className="fixed top-20 right-8 z-50 bg-gradient-to-r from-gray-900 to-gray-800 border-2 border-primary rounded-lg p-6 shadow-2xl max-w-sm"
-        >
-          <div className="flex items-start gap-4">
-            <img 
-              src="/images/chrono-trigger-gato.gif" 
-              alt="Gato"
-              className="w-16 h-16 object-contain"
-            />
-            <div>
-              <div className="text-primary font-bold text-sm mb-1">ACHIEVEMENT UNLOCKED</div>
-              <div className="text-white font-bold mb-1">Factory Puzzle Solved</div>
-              <div className="text-gray-400 text-sm">Year 2300 A.D. - The door opens...</div>
-            </div>
-          </div>
-        </motion.div>
-      )}
 
       {/* Music Control */}
       {unlocked && (

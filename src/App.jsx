@@ -11,6 +11,16 @@ import ThemeToggle from './components/ThemeToggle';
 import ScrollProgress from './components/ScrollProgress';
 import ChronoTriggerEasterEgg from './components/ChronoTriggerEasterEgg';
 import LoadingScreen from './components/LoadingScreen';
+import AchievementBoard from './components/AchievementBoard';
+import KonamiCode from './components/KonamiCode';
+import Speedrunner from './components/Speedrunner';
+import Explorer from './components/Explorer';
+import HollowKnight from './components/HollowKnight';
+import PraiseTheSun from './components/PraiseTheSun';
+import HarvestMoon from './components/HarvestMoon';
+import CakeIsALie from './components/CakeIsALie';
+import CompletionReward from './components/CompletionReward';
+import { AchievementProvider } from './context/AchievementContext';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
@@ -30,7 +40,7 @@ function App() {
   };
 
   return (
-    <>
+    <AchievementProvider>
       <AnimatePresence>
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
       </AnimatePresence>
@@ -52,9 +62,18 @@ function App() {
         </div>
         <BackToTop />
         <ThemeToggle />
+        <AchievementBoard />
+        <KonamiCode />
+        <Speedrunner />
+        <Explorer />
+        <HollowKnight />
+        <PraiseTheSun />
+        <HarvestMoon />
+        <CakeIsALie />
+        <CompletionReward />
       </div>
     </ChronoTriggerEasterEgg>
-    </>
+    </AchievementProvider>
   );
 }
 

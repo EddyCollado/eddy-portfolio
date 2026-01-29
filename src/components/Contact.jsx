@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useAchievements } from '../context/AchievementContext';
 
 const Contact = () => {
+  const { unlockAchievement } = useAchievements();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,6 +39,7 @@ const Contact = () => {
         setIsSubmitting(false);
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
+        unlockAchievement('contactForm');
         
         setTimeout(() => setSubmitStatus(null), 5000);
       }

@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { RESUME_URL } from '../config';
+import { useAchievements } from '../context/AchievementContext';
 
 const Footer = () => {
+  const { unlockAchievement } = useAchievements();
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
@@ -132,6 +134,7 @@ const Footer = () => {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => unlockAchievement('resumeDownload')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-block mt-4 px-6 py-2 bg-primary/20 border border-primary/40 text-primary rounded-lg text-sm font-semibold hover:bg-primary/30 transition-colors"
@@ -153,7 +156,7 @@ const Footer = () => {
             © {currentYear} Eddy Collado. Built with React, Tailwind & Framer Motion.
           </p>
           <p className="text-gray-400 text-sm">
-            Designed & Developed with <span className="text-red-500">❤️</span> in Denver 🤖
+            Designed & Developed with <span className="text-red-500">❤️</span> in Denver <span id="hidden-cake" className="cursor-pointer hover:opacity-80 transition-opacity" title="?">🤖</span>
           </p>
         </motion.div>
       </div>

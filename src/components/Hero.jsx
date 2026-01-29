@@ -1,9 +1,12 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useEasterEgg } from './ChronoTriggerEasterEgg';
+import { useAchievements } from '../context/AchievementContext';
+import { RESUME_URL } from '../config';
 
 const Hero = () => {
   const { unlocked } = useEasterEgg() || {};
+  const { unlockAchievement } = useAchievements();
   const [text, setText] = useState('');
   const fullText = "Hi! I'm Eddy";
   
@@ -158,12 +161,15 @@ const Hero = () => {
           </motion.a>
           
           <motion.a
-            href="#contact"
+            href={RESUME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => unlockAchievement('resumeDownload')}
             className="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold"
             whileHover={{ scale: 1.05, backgroundColor: 'rgba(44, 152, 240, 0.1)' }}
             whileTap={{ scale: 0.95 }}
           >
-            Get In Touch
+            Resume
           </motion.a>
         </motion.div>
       </div>
