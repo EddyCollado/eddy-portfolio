@@ -3,6 +3,21 @@ import { useState, useEffect } from 'react';
 
 const LoadingScreen = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
+  const [messageIndex, setMessageIndex] = useState(0);
+  
+  const messages = [
+    "Kept you waiting, huh?",
+    "Descending into the Hallownest...",
+    "It's dangerous to go alone..."
+  ];
+
+  useEffect(() => {
+    const messageTimer = setInterval(() => {
+      setMessageIndex(prev => (prev + 1) % messages.length);
+    }, 1000);
+
+    return () => clearInterval(messageTimer);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,7 +49,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           className="mb-8"
         >
           <h1 className="text-6xl font-display font-bold text-gradient mb-2">EC</h1>
-          <p className="text-gray-400 text-sm">Loading Portfolio...</p>
+          <p className="text-gray-400 text-sm italic">{messages[messageIndex]}</p>
         </motion.div>
 
         <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
