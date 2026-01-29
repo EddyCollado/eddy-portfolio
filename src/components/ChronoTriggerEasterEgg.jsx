@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, createContext, useContext } from 'react';
+import { useState, useEffect, useRef, createContext, useContext, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useAchievements } from '../context/AchievementContext';
 import { useSwipeDetection } from '../hooks/useSwipeDetection';
@@ -20,7 +20,7 @@ const ChronoTriggerEasterEgg = ({ children }) => {
   const SWIPE_CODE = ['right', 'left', 'up', 'down']; // Mobile alternative
 
   // Swipe detection for mobile
-  useSwipeDetection((direction) => {
+  const handleSwipe = useCallback((direction) => {
     if (unlocked) return;
     
     setSwipeSequence(prev => {
@@ -41,7 +41,9 @@ const ChronoTriggerEasterEgg = ({ children }) => {
       
       return newSeq;
     });
-  });
+  }, [unlocked, unlockAchievement]);
+
+  useSwipeDetection(handleSwipe);
 
   useEffect(() => {
     const handleKeyPress = (e) => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useAchievements } from '../context/AchievementContext';
 import { useSwipeDetection } from '../hooks/useSwipeDetection';
 
@@ -12,15 +12,13 @@ const KonamiCode = () => {
   const SWIPE_CODE = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right']; // Mobile: swipes + 2 taps
 
   // Swipe detection for mobile
-  useSwipeDetection((direction) => {
+  const handleSwipe = useCallback((direction) => {
     if (isUnlocked('konami')) return;
     
     setSwipeSequence(prev => {
       const newSeq = [...prev, direction].slice(-8);
       
-      // Check if swipe sequence matches, then wait for 2 taps
       if (newSeq.join(',') === SWIPE_CODE.join(',')) {
-        // Swipe sequence complete, now need 2 taps
         const handleTap = () => {
           setTapCount(prev => {
             const newCount = prev + 1;
@@ -40,7 +38,9 @@ const KonamiCode = () => {
       
       return newSeq;
     });
-  });
+  }, [isUnlocked, unlockAchievement]);
+
+  useSwipeDetection(handleSwipe);
 
   useEffect(() => {
     if (isUnlocked('konami')) return;
