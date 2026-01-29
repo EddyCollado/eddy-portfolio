@@ -51,15 +51,25 @@ export const CompletionModalContent = () => {
         <h3 className="text-2xl font-bold text-white mb-4">🕹️ Games That Shaped Me</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { name: 'Chrono Trigger', emoji: '⏰', year: '1995', image: 'chrono-trigger.jpg' },
-            { name: 'Hollow Knight', emoji: '⚔️', year: '2017', image: 'hollow-knight.jpg' },
-            { name: 'Dark Souls', emoji: '🔥', year: '2011', image: 'dark-souls.jpg' },
-            { name: 'Metal Gear Solid', emoji: '📦', year: '1998', image: 'metal-gear-solid.jpg' },
-            { name: 'Final Fantasy X', emoji: '🌊', year: '2001', image: 'final-fantasy-x.jpg' },
-            { name: 'Stardew Valley', emoji: '🌾', year: '2016', image: 'stardew-valley.jpg' },
-            { name: 'The Last of Us', emoji: '🍄', year: '2013', image: 'the-last-of-us.jpg' },
-            { name: 'Elden Ring', emoji: '🗡️', year: '2022', image: 'elden-ring.jpg' },
-          ].map((game, index) => (
+            { name: 'Chrono Trigger', emoji: '⏰', year: '1995', image: 'chrono-trigger' },
+            { name: 'Hollow Knight', emoji: '⚔️', year: '2017', image: 'hollow-knight' },
+            { name: 'Dark Souls', emoji: '🔥', year: '2011', image: 'dark-souls' },
+            { name: 'Metal Gear Solid', emoji: '📦', year: '1998', image: 'metal-gear-solid' },
+            { name: 'Final Fantasy X', emoji: '🌊', year: '2001', image: 'final-fantasy-x' },
+            { name: 'Stardew Valley', emoji: '🌾', year: '2016', image: 'stardew-valley' },
+            { name: 'The Last of Us', emoji: '🍄', year: '2013', image: 'the-last-of-us' },
+            { name: 'Elden Ring', emoji: '🗡️', year: '2022', image: 'elden-ring' },
+          ].map((game, index) => {
+            const tryImage = (baseName) => {
+              const img = new Image();
+              img.src = `/images/games/${baseName}.png`;
+              img.onerror = () => {
+                img.src = `/images/games/${baseName}.jpg`;
+              };
+              return img.src;
+            };
+            
+            return (
             <motion.div
               key={game.name}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -69,12 +79,17 @@ export const CompletionModalContent = () => {
             >
               <div className="aspect-[3/4] relative bg-gray-900 flex items-center justify-center">
                 <img 
-                  src={`/images/games/${game.image}`}
+                  src={`/images/games/${game.image}.png`}
                   alt={game.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
+                    const jpgSrc = `/images/games/${game.image}.jpg`;
+                    if (e.target.src.endsWith('.png')) {
+                      e.target.src = jpgSrc;
+                    } else {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }
                   }}
                 />
                 <div className="absolute inset-0 hidden items-center justify-center text-6xl">
@@ -86,7 +101,8 @@ export const CompletionModalContent = () => {
                 <div className="text-xs text-gray-500">{game.year}</div>
               </div>
             </motion.div>
-          ))}
+          );
+          })}
         </div>
       </motion.div>
 
