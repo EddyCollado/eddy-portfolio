@@ -10,7 +10,7 @@ const ACHIEVEMENTS = {
     name: 'Factory Puzzle',
     description: 'Discovered the Kingdom of Zeal',
     hint: '🤖 Four keys unlock the ancient kingdom...',
-    detailedHint: 'Press X, A, B, Y in sequence',
+    detailedHint: 'Desktop: Press X, A, B, Y | Mobile: Swipe Right, Left, Up, Down',
     icon: '⏰',
     game: 'Chrono Trigger'
   },
@@ -28,7 +28,7 @@ const ACHIEVEMENTS = {
     name: 'Tactical Espionage',
     description: 'Entered the legendary code',
     hint: '❗ ↑↑↓↓←→←→',
-    detailedHint: 'Press: ↑ ↑ ↓ ↓ ← → ← → B A',
+    detailedHint: 'Desktop: ↑ ↑ ↓ ↓ ← → ← → B A | Mobile: Swipe pattern + tap twice',
     icon: '📦',
     game: 'Metal Gear Solid'
   },
@@ -91,7 +91,7 @@ const ACHIEVEMENTS = {
     name: 'SHAW!',
     description: 'Summoned Hornet',
     hint: '🦗 A battle cry echoes...',
-    detailedHint: 'Type "SHAW" anywhere on the page',
+    detailedHint: 'Desktop: Type "SHAW" | Mobile: Tap the sword button',
     icon: '⚔️',
     game: 'Hollow Knight'
   }

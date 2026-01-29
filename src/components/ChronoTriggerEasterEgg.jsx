@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, createContext, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { useAchievements } from '../context/AchievementContext';
+import { useSwipeDetection } from '../hooks/useSwipeDetection';
 
 // Create context for easter egg state
 export const EasterEggContext = createContext();
@@ -9,12 +10,38 @@ export const useEasterEgg = () => useContext(EasterEggContext);
 
 const ChronoTriggerEasterEgg = ({ children }) => {
   const [sequence, setSequence] = useState([]);
+  const [swipeSequence, setSwipeSequence] = useState([]);
   const [unlocked, setUnlocked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
   const { unlockAchievement } = useAchievements();
 
   const SECRET_CODE = ['x', 'a', 'b', 'y'];
+  const SWIPE_CODE = ['right', 'left', 'up', 'down']; // Mobile alternative
+
+  // Swipe detection for mobile
+  useSwipeDetection((direction) => {
+    if (unlocked) return;
+    
+    setSwipeSequence(prev => {
+      const newSeq = [...prev, direction].slice(-4);
+      
+      if (newSeq.join(',') === SWIPE_CODE.join(',')) {
+        setUnlocked(true);
+        unlockAchievement('factoryPuzzle');
+        
+        if (!audioRef.current) {
+          audioRef.current = new Audio('/audio/Chrono_Trigger-Corridors_of_Time.mp3');
+          audioRef.current.loop = true;
+          audioRef.current.volume = 0.3;
+          audioRef.current.play();
+          setIsPlaying(true);
+        }
+      }
+      
+      return newSeq;
+    });
+  });
 
   useEffect(() => {
     const handleKeyPress = (e) => {
