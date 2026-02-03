@@ -49,12 +49,12 @@ const AchievementBoard = () => {
       {/* Achievement Button */}
       <motion.button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="fixed bottom-56 right-4 z-50 bg-white dark:bg-dark/95 backdrop-blur-lg border border-gray-300 dark:border-primary/30 rounded-lg p-3 shadow-lg hover:border-primary dark:hover:border-primary/50 transition-colors"
+        className="fixed top-4 right-20 z-50 bg-white dark:bg-dark/95 backdrop-blur-lg border border-gray-300 dark:border-primary/30 rounded-lg px-3 py-2 shadow-lg hover:border-primary dark:hover:border-primary/50 transition-colors"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         <div className="flex items-center gap-2">
-          <span className="text-2xl">🏆</span>
+          <span className="text-xl">🏆</span>
           <span className="text-gray-900 dark:text-white font-semibold text-sm">{progress.unlocked}/{progress.total}</span>
         </div>
       </motion.button>

@@ -7,7 +7,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
-import ThemeToggle from './components/ThemeToggle';
+import ThemeSelector from './components/ThemeSelector';
 import ScrollProgress from './components/ScrollProgress';
 import ChronoTriggerEasterEgg from './components/ChronoTriggerEasterEgg';
 import LoadingScreen from './components/LoadingScreen';
@@ -22,6 +22,7 @@ import CakeIsALie from './components/CakeIsALie';
 import ContactFormCheat from './components/ContactFormCheat';
 import CompletionReward from './components/CompletionReward';
 import { AchievementProvider } from './context/AchievementContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { initGA } from './utils/analytics';
@@ -43,41 +44,43 @@ function App() {
   };
 
   return (
-    <AchievementProvider>
-      <AnimatePresence>
-        {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-      </AnimatePresence>
-      
-      <ChronoTriggerEasterEgg>
-      <div className="min-h-screen bg-white dark:bg-dark transition-colors duration-300">
-        <ScrollProgress />
-        <Navigation />
-        <div className="bg-dark">
-          <Hero />
+    <ThemeProvider>
+      <AchievementProvider>
+        <AnimatePresence>
+          {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+        </AnimatePresence>
+        
+        <ChronoTriggerEasterEgg>
+        <div className="min-h-screen bg-white dark:bg-dark transition-colors duration-300">
+          <ScrollProgress />
+          <Navigation />
+          <div className="bg-dark">
+            <Hero />
+          </div>
+          <About />
+          <Skills />
+          <Timeline />
+          <Projects />
+          <Contact />
+          <div className="bg-gradient-to-b from-dark to-black">
+            <Footer />
+          </div>
+          <BackToTop />
+          <ThemeSelector />
+          <AchievementBoard />
+          <KonamiCode />
+          <Speedrunner />
+          <Explorer />
+          <HollowKnight />
+          <PraiseTheSun />
+          <HarvestMoon />
+          <CakeIsALie />
+          <ContactFormCheat />
+          <CompletionReward />
         </div>
-        <About />
-        <Skills />
-        <Timeline />
-        <Projects />
-        <Contact />
-        <div className="bg-gradient-to-b from-dark to-black">
-          <Footer />
-        </div>
-        <BackToTop />
-        <ThemeToggle />
-        <AchievementBoard />
-        <KonamiCode />
-        <Speedrunner />
-        <Explorer />
-        <HollowKnight />
-        <PraiseTheSun />
-        <HarvestMoon />
-        <CakeIsALie />
-        <ContactFormCheat />
-        <CompletionReward />
-      </div>
-    </ChronoTriggerEasterEgg>
-    </AchievementProvider>
+      </ChronoTriggerEasterEgg>
+      </AchievementProvider>
+    </ThemeProvider>
   );
 }
 

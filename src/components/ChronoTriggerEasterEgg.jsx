@@ -108,7 +108,7 @@ const ChronoTriggerEasterEgg = ({ children }) => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           onClick={toggleMusic}
-          className="fixed bottom-40 right-8 z-50 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg"
+          className="fixed bottom-40 right-4 z-40 w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white shadow-lg"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           title={isPlaying ? "Pause music" : "Play music"}

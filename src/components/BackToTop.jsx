@@ -19,7 +19,7 @@ const BackToTop = () => {
       animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
       transition={{ duration: 0.3 }}
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-r from-primary to-purple-500 rounded-full flex items-center justify-center text-white shadow-lg"
+      className="fixed bottom-8 right-4 z-50 w-14 h-14 bg-gradient-to-r from-primary to-purple-500 rounded-full flex items-center justify-center text-white shadow-lg"
       whileHover={{ scale: 1.1, boxShadow: '0 0 30px rgba(44, 152, 240, 0.5)' }}
       whileTap={{ scale: 0.9 }}
       title="Back to top"

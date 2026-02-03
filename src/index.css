@@ -8,10 +8,7 @@
   }
   
   body {
-    /* 1. Default (Light Mode) styles first */
     @apply bg-white text-gray-900 antialiased; 
-    
-    /* 2. Dark Mode overrides second */
     @apply dark:bg-dark dark:text-white;
   }
 }
@@ -20,4 +17,82 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500;
   }
+}
+
+/* Theme-specific styles */
+[data-theme="retro"] {
+  --primary: #00ff00;
+  --secondary: #ff00ff;
+  --background: #000000;
+  --text: #00ff00;
+}
+
+[data-theme="retro"] * {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+[data-theme="retro"] .text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #00ff00, #ffff00, #ff00ff);
+}
+
+[data-theme="cyberpunk"] {
+  --primary: #ff00ff;
+  --secondary: #00ffff;
+  --background: #0a0014;
+  --text: #ffffff;
+}
+
+[data-theme="cyberpunk"] .text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(90deg); }
+}
+
+[data-theme="cyberpunk"] h1,
+[data-theme="cyberpunk"] h2,
+[data-theme="cyberpunk"] h3 {
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+}
+
+/* Retro scanlines effect */
+[data-theme="retro"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.05) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 255, 0, 0.05) 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Cyberpunk grid effect */
+[data-theme="cyberpunk"]::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 0, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 9999;
 }
