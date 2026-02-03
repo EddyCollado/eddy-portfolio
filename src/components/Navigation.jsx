@@ -2,6 +2,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { RESUME_URL } from '../config';
 import { useAchievements } from '../context/AchievementContext';
+import { trackResumeDownload } from '../utils/analytics';
 
 const Navigation = () => {
   const { unlockAchievement } = useAchievements();
@@ -115,7 +116,10 @@ const Navigation = () => {
                 href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => unlockAchievement('resumeDownload')}
+                onClick={() => {
+                  unlockAchievement('resumeDownload');
+                  trackResumeDownload();
+                }}
                 className="px-6 py-2 bg-primary text-white rounded-lg text-sm font-semibold"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(44, 152, 240, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
@@ -183,7 +187,10 @@ const Navigation = () => {
             href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => unlockAchievement('resumeDownload')}
+            onClick={() => {
+              unlockAchievement('resumeDownload');
+              trackResumeDownload();
+            }}
             initial={{ opacity: 0, x: 20 }}
             animate={isMobileMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
             transition={{ delay: navItems.length * 0.1 }}

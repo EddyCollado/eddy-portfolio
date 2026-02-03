@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useRef } from 'react';
+import { trackAchievement } from '../utils/analytics';
 
 const AchievementContext = createContext();
 
@@ -113,6 +114,7 @@ export const AchievementProvider = ({ children }) => {
       if (prev.includes(id)) return prev;
       setShowNotification(ACHIEVEMENTS[id]);
       setTimeout(() => setShowNotification(null), 5000);
+      trackAchievement(id, ACHIEVEMENTS[id].name);
       return [...prev, id];
     });
   };

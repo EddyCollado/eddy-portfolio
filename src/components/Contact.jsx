@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useAchievements } from '../context/AchievementContext';
+import { trackContactForm } from '../utils/analytics';
 
 const Contact = () => {
   const { unlockAchievement } = useAchievements();
@@ -40,6 +41,7 @@ const Contact = () => {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
         unlockAchievement('contactForm');
+        trackContactForm();
         
         setTimeout(() => setSubmitStatus(null), 5000);
       }

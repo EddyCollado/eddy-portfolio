@@ -24,6 +24,7 @@ import CompletionReward from './components/CompletionReward';
 import { AchievementProvider } from './context/AchievementContext';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { initGA } from './utils/analytics';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ function App() {
     if (hasVisited) {
       setIsLoading(false);
     }
+    initGA();
   }, []);
 
   const handleLoadingComplete = () => {
