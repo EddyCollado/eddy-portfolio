@@ -1,5 +1,5 @@
 // Google Analytics 4 helper functions
-export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || '';
+export const GA_MEASUREMENT_ID = 'G-4R34LB397L';
 
 // Initialize GA4
 export const initGA = () => {
