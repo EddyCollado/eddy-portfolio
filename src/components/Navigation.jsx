@@ -5,7 +5,7 @@ import { useAchievements } from '../context/AchievementContext';
 import { trackResumeDownload } from '../utils/analytics';
 
 const Navigation = () => {
-  const { unlockAchievement } = useAchievements();
+  const { unlockAchievement, progress } = useAchievements();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -110,6 +110,17 @@ const Navigation = () => {
                   </motion.a>
                 );
               })}
+              
+              {/* Achievement Button */}
+              <motion.button
+                onClick={() => window.dispatchEvent(new CustomEvent('toggleAchievements'))}
+                className="px-3 py-2 bg-white dark:bg-dark/95 backdrop-blur-lg border border-gray-300 dark:border-primary/30 rounded-lg hover:border-primary dark:hover:border-primary/50 transition-colors flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-xl">🏆</span>
+                <span className="text-gray-900 dark:text-white font-semibold text-sm">{progress.unlocked}/{progress.total}</span>
+              </motion.button>
               
               {/* CTA Button */}
               <motion.a

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAchievements } from '../context/AchievementContext';
 import { CompletionModalContent } from './CompletionModalContent';
 
@@ -13,6 +13,13 @@ const AchievementBoard = () => {
   const { achievements, isUnlocked, progress, showNotification } = useAchievements();
 
   const isComplete = progress.unlocked === progress.total;
+  
+  // Listen for toggle event from Navigation
+  useEffect(() => {
+    const handleToggle = () => setIsExpanded(prev => !prev);
+    window.addEventListener('toggleAchievements', handleToggle);
+    return () => window.removeEventListener('toggleAchievements', handleToggle);
+  }, []);
 
   const hideAchievements = () => {
     sessionStorage.setItem('achievementsHidden', 'true');
@@ -45,19 +52,6 @@ const AchievementBoard = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Achievement Button */}
-      <motion.button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="fixed top-4 right-20 z-50 bg-white dark:bg-dark/95 backdrop-blur-lg border border-gray-300 dark:border-primary/30 rounded-lg px-3 py-2 shadow-lg hover:border-primary dark:hover:border-primary/50 transition-colors"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <div className="flex items-center gap-2">
-          <span className="text-xl">🏆</span>
-          <span className="text-gray-900 dark:text-white font-semibold text-sm">{progress.unlocked}/{progress.total}</span>
-        </div>
-      </motion.button>
 
       {/* Achievement Panel */}
       <AnimatePresence>
