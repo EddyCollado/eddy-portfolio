@@ -19,6 +19,53 @@
   }
 }
 
+/* Retro 8-bit font */
+[data-theme="retro"] h1,
+[data-theme="retro"] h2,
+[data-theme="retro"] h3,
+[data-theme="retro"] .font-display {
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 2px 2px 0 #000000;
+  letter-spacing: 0.1em;
+}
+
+/* Make all text readable on retro background */
+[data-theme="retro"] p,
+[data-theme="retro"] span,
+[data-theme="retro"] div {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Add dark backgrounds to content sections */
+[data-theme="retro"] section {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+/* Ensure containers have dark backgrounds */
+[data-theme="retro"] .bg-white,
+[data-theme="retro"] .bg-gray-50,
+[data-theme="retro"] .bg-gray-100 {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="retro"] .dark\:bg-dark,
+[data-theme="retro"] .dark\:bg-gray-900 {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-theme="retro"] .text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #00ff00, #00ffff, #ff00ff);
+  animation: retroPulse 2s ease-in-out infinite;
+  filter: brightness(2) drop-shadow(0 0 20px currentColor);
+}
+
+@keyframes retroPulse {
+  0%, 100% { filter: brightness(2) drop-shadow(0 0 20px currentColor); }
+  50% { filter: brightness(3) drop-shadow(0 0 30px currentColor); }
+}
+
 /* Theme-specific styles */
 [data-theme="retro"] {
   --primary: #00ff00;
@@ -79,6 +126,56 @@
   );
   pointer-events: none;
   z-index: 9999;
+}
+
+/* Retro synthwave grid background */
+[data-theme="retro"]::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: 
+    linear-gradient(0deg, transparent 24%, rgba(255, 0, 255, 0.5) 25%, rgba(255, 0, 255, 0.5) 26%, transparent 27%, transparent 74%, rgba(255, 0, 255, 0.5) 75%, rgba(255, 0, 255, 0.5) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 255, 255, 0.5) 25%, rgba(0, 255, 255, 0.5) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.5) 75%, rgba(0, 255, 255, 0.5) 76%, transparent 77%, transparent);
+  background-size: 80px 80px;
+  background-position: 0 0;
+  transform: perspective(300px) rotateX(65deg);
+  transform-origin: bottom;
+  pointer-events: none;
+  z-index: 1;
+  animation: retroGrid 3s linear infinite;
+}
+
+@keyframes retroGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 80px;
+  }
+}
+
+/* Retro gradient sky */
+[data-theme="retro"] body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    #000000 0%,
+    #1a0033 15%,
+    #330066 30%,
+    #ff00ff 45%,
+    #ff6600 60%,
+    #ffcc00 75%,
+    #000000 100%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Cyberpunk grid effect */
