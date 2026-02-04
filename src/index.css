@@ -5,11 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
     @apply bg-white text-gray-900 antialiased; 
     @apply dark:bg-dark dark:text-white;
+    overflow-x: hidden;
   }
 }
 
@@ -92,21 +94,74 @@
   --text: #ffffff;
 }
 
-[data-theme="cyberpunk"] .text-gradient {
-  @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
-  animation: glitch 3s infinite;
-}
-
-@keyframes glitch {
-  0%, 100% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(90deg); }
-}
-
+/* Cyberpunk neon text effects */
 [data-theme="cyberpunk"] h1,
 [data-theme="cyberpunk"] h2,
 [data-theme="cyberpunk"] h3 {
-  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff,
+    0 0 40px #ff00ff,
+    2px 2px 0 rgba(0, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+  animation: cyberpunkFlicker 4s infinite alternate;
+}
+
+@keyframes cyberpunkFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+  51% { opacity: 1; }
+  52% { opacity: 0.98; }
+  53% { opacity: 1; }
+}
+
+[data-theme="cyberpunk"] .text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+  filter: brightness(1.5) drop-shadow(0 0 20px #ff00ff);
+  animation: cyberpunkPulse 3s ease-in-out infinite;
+}
+
+@keyframes cyberpunkPulse {
+  0%, 100% { 
+    filter: brightness(1.5) drop-shadow(0 0 20px #ff00ff);
+    text-shadow: 0 0 30px #ff00ff;
+  }
+  50% { 
+    filter: brightness(2) drop-shadow(0 0 30px #00ffff);
+    text-shadow: 0 0 40px #00ffff;
+  }
+}
+
+/* Cyberpunk section backgrounds */
+[data-theme="cyberpunk"] section {
+  background: rgba(10, 0, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 0, 255, 0.2);
+  box-shadow: 
+    0 0 20px rgba(255, 0, 255, 0.1),
+    inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+[data-theme="cyberpunk"] .bg-white,
+[data-theme="cyberpunk"] .bg-gray-50,
+[data-theme="cyberpunk"] .bg-gray-100 {
+  background: rgba(10, 0, 20, 0.9) !important;
+  border: 1px solid rgba(255, 0, 255, 0.3);
+}
+
+[data-theme="cyberpunk"] .dark\:bg-dark,
+[data-theme="cyberpunk"] .dark\:bg-gray-900 {
+  background: rgba(10, 0, 20, 0.95) !important;
+}
+
+/* Cyberpunk text readability */
+[data-theme="cyberpunk"] p,
+[data-theme="cyberpunk"] span,
+[data-theme="cyberpunk"] div {
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
 }
 
 /* Retro scanlines effect */
@@ -178,7 +233,26 @@
   z-index: 0;
 }
 
-/* Cyberpunk grid effect */
+/* Cyberpunk neon city background */
+[data-theme="cyberpunk"] body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at top, #1a0033 0%, #0a0014 50%, #000000 100%),
+    linear-gradient(180deg, 
+      rgba(255, 0, 255, 0.1) 0%,
+      rgba(0, 255, 255, 0.1) 50%,
+      rgba(255, 0, 255, 0.1) 100%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cyberpunk grid overlay */
 [data-theme="cyberpunk"]::after {
   content: "";
   position: fixed;
@@ -187,9 +261,40 @@
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(255, 0, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+    linear-gradient(rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
+  animation: cyberpunkGridShift 20s linear infinite;
 }
+
+@keyframes cyberpunkGridShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Cyberpunk rain effect */
+[data-theme="cyberpunk"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(transparent 0%, transparent 50%, rgba(0, 255, 255, 0.03) 50%, rgba(0, 255, 255, 0.03) 51%, transparent 51%),
+    linear-gradient(transparent 0%, transparent 50%, rgba(255, 0, 255, 0.03) 50%, rgba(255, 0, 255, 0.03) 51%, transparent 51%);
+  background-size: 2px 100px, 3px 150px;
+  background-position: 0 0, 50px 0;
+  pointer-events: none;
+  z-index: 9998;
+  animation: cyberpunkRain 1s linear infinite;
+}
+
+@keyframes cyberpunkRain {
+  0% { background-position: 0 0, 50px 0; }
+  100% { background-position: 0 100px, 50px 150px; }
+}
+
+
