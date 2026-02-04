@@ -140,26 +140,39 @@ const Navigation = () => {
             </div>
             
             {/* Mobile Menu Button */}
-            <motion.button
-              className="md:hidden relative w-10 h-10 flex items-center justify-center"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              whileTap={{ scale: 0.9 }}
-            >
-              <div className="w-6 flex flex-col gap-1.5">
-                <motion.span
-                  animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                  className="w-full h-0.5 bg-white rounded-full"
-                />
-                <motion.span
-                  animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                  className="w-full h-0.5 bg-white rounded-full"
-                />
-                <motion.span
-                  animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                  className="w-full h-0.5 bg-white rounded-full"
-                />
-              </div>
-            </motion.button>
+            <div className="md:hidden flex items-center gap-2">
+              {/* Achievement Button - Mobile */}
+              <motion.button
+                onClick={() => window.dispatchEvent(new CustomEvent('toggleAchievements'))}
+                className="px-2 py-1 bg-white dark:bg-dark/95 backdrop-blur-lg border border-gray-300 dark:border-primary/30 rounded-lg hover:border-primary dark:hover:border-primary/50 transition-colors flex items-center gap-1"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="text-lg">🏆</span>
+                <span className="text-gray-900 dark:text-white font-semibold text-xs">{progress.unlocked}/{progress.total}</span>
+              </motion.button>
+              
+              <motion.button
+                className="relative w-10 h-10 flex items-center justify-center"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                whileTap={{ scale: 0.9 }}
+              >
+                <div className="w-6 flex flex-col gap-1.5">
+                  <motion.span
+                    animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                    className="w-full h-0.5 bg-white rounded-full"
+                  />
+                  <motion.span
+                    animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                    className="w-full h-0.5 bg-white rounded-full"
+                  />
+                  <motion.span
+                    animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                    className="w-full h-0.5 bg-white rounded-full"
+                  />
+                </div>
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.nav>
