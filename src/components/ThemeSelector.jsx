@@ -44,7 +44,15 @@ const ThemeSelector = () => {
               borderColor: theme.colors.primary + '40',
             }}
           >
-            {Object.values(themes).map((t) => (
+            {Object.values(themes)
+              .filter((t) => {
+                // Hide retro theme on mobile
+                if (t.id === 'retro' && window.innerWidth < 768) {
+                  return false;
+                }
+                return true;
+              })
+              .map((t) => (
               <motion.button
                 key={t.id}
                 onClick={() => {
