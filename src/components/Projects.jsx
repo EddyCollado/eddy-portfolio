@@ -132,9 +132,6 @@ const Projects = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            Hover over the cards to see them come to life with 3D effects
-          </p>
         </motion.div>
         
         {/* Projects Grid */}
