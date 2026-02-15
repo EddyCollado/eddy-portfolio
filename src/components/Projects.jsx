@@ -97,7 +97,7 @@ const Projects = () => {
       description: 'Low income phone service with international calling and ACP programs. Lead developer rebuilding from ground up.',
       image: '/images/Genmocasestudy.gif',
       link: 'https://www.genmobile.com',
-      livePreview: 'https://www.genmobile.com', // Live website preview
+      livePreview: 'https://www.genmobile.com',
       tags: ['React', 'CSS', 'JavaScript', 'Lead Dev'],
     },
     {
@@ -105,15 +105,39 @@ const Projects = () => {
       description: 'Hassle-free installation and product mastery for smart home devices. Lead front-end developer.',
       image: '/images/ontechsmarthomeservices.gif',
       link: 'https://ontechsmartservices.com/',
-      livePreview: 'https://ontechsmartservices.com/', // Live website preview
+      livePreview: 'https://ontechsmartservices.com/',
       tags: ['Shopify', 'Shogun', 'GSAP', 'HTML/CSS'],
+    },
+    {
+      title: 'BoostMobile SMB Portal',
+      description: 'Full-stack business wireless portal for managing multiple lines, devices, and plans. Built with Next.js and AWS serverless backend.',
+      image: '/images/placeholder.jpg',
+      link: 'https://github.com/EddyCollado/boostmobile-smb',
+      livePreview: null,
+      tags: ['Next.js', 'TypeScript', 'AWS Lambda', 'Tailwind'],
+    },
+    {
+      title: 'Adobe Target & Quantum Metrics',
+      description: 'A/B testing and analytics implementation for enterprise-scale experimentation and user behavior tracking.',
+      image: '/images/placeholder.jpg',
+      link: '#',
+      livePreview: null,
+      tags: ['Adobe Target', 'Quantum Metrics', 'A/B Testing', 'Analytics'],
+    },
+    {
+      title: 'Unreal Engine Game (WIP)',
+      description: 'Zelda/Metroidvania-style action-adventure game in development. Exploring game mechanics, level design, and storytelling.',
+      image: '/images/placeholder.jpg',
+      link: '#',
+      livePreview: null,
+      tags: ['Unreal Engine', 'Game Dev', 'C++', 'In Progress'],
     },
     {
       title: 'IHS Tech Tablet',
       description: 'Professional tech tablet for in-home smart home consultations and installations.',
       image: '/images/techtablet.gif',
       link: 'https://www.figma.com/proto/seDKDfmy4nnFyN6hyw3hqv/Tech-Tablet-2.0',
-      livePreview: null, // No live preview for Figma prototypes
+      livePreview: null,
       tags: ['Figma', 'UI/UX', 'Design'],
     },
   ];

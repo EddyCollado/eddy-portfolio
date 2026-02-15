@@ -58,9 +58,9 @@ function App() {
             <Hero />
           </div>
           <About />
+          <Projects />
           <Skills />
           <Timeline />
-          <Projects />
           <Contact />
           <div className="bg-gradient-to-b from-dark to-black">
             <Footer />
