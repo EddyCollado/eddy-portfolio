@@ -142,7 +142,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          Senior UI/UX Front End Developer crafting beautiful, accessible web experiences
+          Senior Frontend Developer · React · Analytics Engineering · Design Systems
         </motion.p>
 
         <motion.div

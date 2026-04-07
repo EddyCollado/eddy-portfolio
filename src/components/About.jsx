@@ -104,7 +104,7 @@ const About = () => {
             >
               <h3 className="text-2xl font-bold mb-4 text-primary">Who Am I?</h3>
               <p className="text-black dark:text-gray-300 leading-relaxed">
-                I'm Eddy Collado, a creative and enthusiastic Senior UI/UX Front-End Web Developer based in Denver, Colorado, currently working at DISH/EchoStar. I specialize in bridging design and development to build accessible, responsive, and scalable web experiences using React, TypeScript, CSS, and modern JavaScript, with a strong focus on design systems and real-world production constraints.
+                I'm Eddy Collado, a Senior Front-End Developer based in Denver, Colorado, working at DISH/EchoStar across Boost Mobile, OnTech Smart Services, and Gen Mobile. I specialize in bridging design and development, building accessible, scalable web experiences with React, TypeScript, and modern JavaScript, with a strong focus on AEM, design systems, and production-grade architecture.
               </p>
             </motion.div>
             
@@ -115,7 +115,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <p className="text-black dark:text-gray-300 leading-relaxed">
-                With a background in graphic design, I bring a design-first mindset to engineering—collaborating closely with designers, product managers, and backend teams in Agile Scrum environments. My work spans large-scale platforms like Boost Mobile, OnTech Smart Services, and Gen Mobile, where I contribute to AEM-powered experiences, component libraries, experimentation, and performance-focused UI development.
+                Beyond UI development, I work across the analytics stack—building real-time dashboards in New Relic, diagnosing data capture gaps in Quantum Metrics, and defining how Adobe Analytics, QM, and NR each serve distinct roles across a large-scale e-commerce platform.
               </p>
             </motion.div>
             
@@ -126,7 +126,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-black dark:text-gray-300 leading-relaxed">
-                I'm always evolving my craft—whether that's refining A/B testing strategies, deepening my work with Figma and design systems, or exploring smarter ways to ship maintainable front-end architecture. Outside of work, I enjoy tinkering with handheld gaming PCs, experimenting with Linux and Android, hiking with my dog Atlas, and keeping up with the latest in tech and video game culture.
+                Outside of work, I tinker with handheld gaming PCs, hike with my dog Atlas, and keep up with tech and video game culture.
               </p>
             </motion.div>
           </div>
