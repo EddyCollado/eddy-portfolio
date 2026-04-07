@@ -1,10 +1,7 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useRef, useState } from 'react';
-import GlowCard from './GlowCard';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
-const ProjectCard = ({ title, description, image, link, tags, livePreview }) => {
-  const [showPreview, setShowPreview] = useState(false);
-  
+const ProjectCard = ({ title, description, image, link, tags }) => {
   return (
     <motion.div
       className="rounded-xl overflow-hidden"
@@ -13,28 +10,12 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
     >
       <div className="relative h-96 w-full rounded-xl overflow-hidden cursor-pointer">
       <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full">
-        {/* Live Preview or Background Image */}
-        {livePreview && showPreview ? (
-          <div className="absolute inset-0">
-            <iframe
-              src={livePreview}
-              className="w-full h-full pointer-events-none"
-              title={title}
-              style={{
-                transform: 'scale(0.8) translateZ(20px)',
-                transformOrigin: 'top left',
-                transformStyle: 'preserve-3d',
-              }}
-            />
-          </div>
-        ) : (
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${image})`,
-            }}
-          />
-        )}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+        />
         
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
@@ -55,21 +36,6 @@ const ProjectCard = ({ title, description, image, link, tags, livePreview }) => 
               </span>
             ))}
           </div>
-          
-          {/* Preview Toggle Button */}
-          {livePreview && (
-            <motion.button
-              onClick={(e) => {
-                e.preventDefault();
-                setShowPreview(!showPreview);
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 bg-primary/80 hover:bg-primary rounded-lg text-xs font-semibold text-white"
-            >
-              {showPreview ? '📸 Show Image' : '🌐 Live Preview'}
-            </motion.button>
-          )}
         </div>
         
         {/* Shine Effect */}
@@ -97,7 +63,6 @@ const Projects = () => {
       description: 'Low income phone service with international calling and ACP programs. Lead developer rebuilding from ground up.',
       image: '/images/Genmocasestudy.gif',
       link: 'https://www.genmobile.com',
-      livePreview: 'https://www.genmobile.com', // Live website preview
       tags: ['React', 'CSS', 'JavaScript', 'Lead Dev'],
     },
     {
@@ -105,7 +70,6 @@ const Projects = () => {
       description: 'Hassle-free installation and product mastery for smart home devices. Lead front-end developer.',
       image: '/images/ontechsmarthomeservices.gif',
       link: 'https://ontechsmartservices.com/',
-      livePreview: 'https://ontechsmartservices.com/', // Live website preview
       tags: ['Shopify', 'Shogun', 'GSAP', 'HTML/CSS'],
     },
     {
@@ -113,7 +77,6 @@ const Projects = () => {
       description: 'Professional tech tablet for in-home smart home consultations and installations.',
       image: '/images/techtablet.gif',
       link: 'https://www.figma.com/proto/seDKDfmy4nnFyN6hyw3hqv/Tech-Tablet-2.0',
-      livePreview: null, // No live preview for Figma prototypes
       tags: ['Figma', 'UI/UX', 'Design'],
     },
   ];
