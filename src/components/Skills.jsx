@@ -119,12 +119,26 @@ const SkillCategory = ({ title, skills, delay }) => {
 const Skills = () => {
   const frontendSkills = [
     { name: 'React', level: 95, color: '#61DAFB', icon: '⚛️' },
+    { name: 'Next.js', level: 85, color: '#A3A3A3', icon: '▲' },
     { name: 'JavaScript/TypeScript', level: 90, color: '#F7DF1E', icon: '📜' },
     { name: 'HTML5 & CSS3', level: 95, color: '#E34F26', icon: '🎨' },
     { name: 'Tailwind CSS', level: 90, color: '#06B6D4', icon: '💨' },
     { name: 'SASS/SCSS', level: 85, color: '#CC6699', icon: '💅' },
   ];
   
+  const platformSkills = [
+    { name: 'Adobe Experience Manager', level: 85, color: '#FA0F00', icon: '🧱' },
+    { name: 'AEM Content Fragments & GraphQL', level: 80, color: '#E10098', icon: '🔗' },
+    { name: 'Kotlin & Jetpack Compose', level: 70, color: '#7F52FF', icon: '📱' },
+    { name: 'Magento', level: 75, color: '#EE672F', icon: '🛒' },
+  ];
+
+  const aiSkills = [
+    { name: 'Agentic Coding (Claude Code)', level: 90, color: '#D97757', icon: '🤖' },
+    { name: 'Prompt & Context Engineering', level: 85, color: '#8B5CF6', icon: '🧠' },
+    { name: 'AI Guardrails & HITL Review', level: 85, color: '#10B981', icon: '🛡️' },
+  ];
+
   const animationSkills = [
     { name: 'Framer Motion', level: 85, color: '#FF0055', icon: '🎬' },
     { name: 'GSAP', level: 80, color: '#88CE02', icon: '✨' },
@@ -173,16 +187,28 @@ const Skills = () => {
               skills={frontendSkills}
               delay={0.2}
             />
+
+            <SkillCategory
+              title="Platforms & CMS"
+              skills={platformSkills}
+              delay={0.4}
+            />
           </div>
-          
-          {/* Animation & Tools */}
+
+          {/* AI, Animation & Tools */}
           <div className="space-y-12">
+            <SkillCategory
+              title="AI / Agentic Engineering"
+              skills={aiSkills}
+              delay={0.4}
+            />
+
             <SkillCategory
               title="Animation & Motion"
               skills={animationSkills}
               delay={0.4}
             />
-            
+
             <SkillCategory
               title="Tools & Workflow"
               skills={toolsSkills}
@@ -192,7 +218,7 @@ const Skills = () => {
         </div>
         
         {/* Additional Info Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -261,6 +287,29 @@ const Skills = () => {
               </div>
             </GlowCard>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <GlowCard
+              className="h-full rounded-xl overflow-hidden"
+              glowColor="139, 92, 246"
+              glowSize={250}
+              glowOpacity={0.3}
+              whileHover={{ y: -5 }}
+            >
+              <div className="p-6 bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary/20 rounded-xl h-full">
+                <div className="text-3xl mb-3">🔒</div>
+                <h4 className="text-lg font-bold mb-2 text-black dark:text-white">Privacy by Design</h4>
+                <p className="text-black dark:text-gray-400 text-sm">
+                  PII and analytics compliance built in, masking sensitive data without sacrificing usability
+                </p>
+              </div>
+            </GlowCard>
+          </motion.div>
         </div>
         
         {/* Learning Section */}
@@ -279,7 +328,7 @@ const Skills = () => {
             for backend development. The tech world never stops evolving, and neither do I.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {['Three.js', 'Python', 'WebGL', 'Unreal Engine 5', 'Agentic AI', 'SAML'].map((tech, index) => (
+            {['Three.js', 'Python', 'WebGL', 'Unreal Engine 5', 'SAML'].map((tech, index) => (
               <motion.span
                 key={tech}
                 initial={{ opacity: 0, scale: 0.8 }}

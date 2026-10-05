@@ -58,7 +58,7 @@ const Footer = () => {
               <span className="text-gradient">Eddy Collado</span>
             </h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Senior UI/UX Front End Developer crafting beautiful, accessible, 
+              Front-End / UI Engineer building enterprise-scale, accessible, 
               and performant web experiences.
             </p>
             <div className="flex gap-4">

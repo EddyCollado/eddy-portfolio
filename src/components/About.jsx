@@ -55,6 +55,12 @@ const About = () => {
     { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
     { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+    { name: 'Adobe Experience Manager', logo: null },
+    { name: 'GraphQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg' },
+    { name: 'Kotlin', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg' },
+    { name: 'Jetpack Compose', logo: null },
+    { name: 'Magento', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/magento/magento-original.svg' },
     { name: 'CSS/SASS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg' },
     { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
     { name: 'Framer Motion', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg' },
@@ -62,10 +68,12 @@ const About = () => {
     { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
     { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
     { name: 'Adobe Target', logo: null },
+    { name: 'Quantum Metric', logo: null },
+    { name: 'Claude Code', logo: null },
     { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'Agile/Scrum', logo: null },
     { name: 'A/B Testing', logo: null },
-    { name: 'Accessibility', logo: null },
+    { name: 'Accessibility (WCAG)', logo: null },
     { name: 'Responsive Design', logo: null },
   ];
   
@@ -104,7 +112,7 @@ const About = () => {
             >
               <h3 className="text-2xl font-bold mb-4 text-primary">Who Am I?</h3>
               <p className="text-black dark:text-gray-300 leading-relaxed">
-                I'm Eddy Collado, a Senior Front-End Developer based in Denver, Colorado, working at DISH/EchoStar across Boost Mobile, OnTech Smart Services, and Gen Mobile. I specialize in bridging design and development, building accessible, scalable web experiences with React, TypeScript, and modern JavaScript, with a strong focus on AEM, design systems, and production-grade architecture.
+                I'm Eddy Collado, a Front-End / UI Engineer based in Denver, Colorado, currently an Engineer II at EchoStar (DISH). With 5+ years of experience, I specialize in enterprise-scale web platforms and component-driven architecture, delivering production-ready solutions across AEM, React, Next.js, Magento, and cloud-integrated systems.
               </p>
             </motion.div>
             
@@ -113,6 +121,17 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <p className="text-black dark:text-gray-300 leading-relaxed">
+                With a background in graphic design, I bring a design-first mindset to engineering and I'm at my best bridging design, engineering, and platform constraints. I own complex initiatives end-to-end, from system design and component architecture to performance, accessibility, and data privacy compliance, like leading Quantum Metric PII masking across Boost Mobile's web and Android platforms. My work spans Boost Mobile, DISH, DISH Outdoors, Gen Mobile, and OnTech Smart Services.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               <p className="text-black dark:text-gray-300 leading-relaxed">
                 Beyond UI development, I work across the analytics stack—building real-time dashboards in New Relic, diagnosing data capture gaps in Quantum Metrics, and defining how Adobe Analytics, QM, and NR each serve distinct roles across a large-scale e-commerce platform.
@@ -126,7 +145,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-black dark:text-gray-300 leading-relaxed">
-                Outside of work, I tinker with handheld gaming PCs, hike with my dog Atlas, and keep up with tech and video game culture.
+                I'm increasingly leveraging agentic AI development with Claude Code, directing subagents for exploration, implementation, and QA under defined guardrails, while keeping human-in-the-loop ownership of review and architecture. Outside of work, I tinker with handheld gaming PCs, hike with my dog Atlas, and keep up with tech and video game culture.
               </p>
             </motion.div>
           </div>
@@ -166,7 +185,7 @@ const About = () => {
             <div className="grid grid-cols-3 gap-4 p-6 bg-gradient-to-br from-primary/5 to-purple-500/5 rounded-xl border border-primary/10">
               <StatCard number="5+" label="Years Experience" delay={0.2} />
               <StatCard number="50+" label="Projects" delay={0.4} />
-              <StatCard number="3" label="Major Brands" delay={0.6} />
+              <StatCard number="5" label="Major Brands" delay={0.6} />
             </div>
           </div>
         </div>
